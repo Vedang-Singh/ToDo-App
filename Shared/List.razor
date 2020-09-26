@@ -1,12 +1,12 @@
-<ul>
+<div style="padding: 10px">
     @foreach (var item in ListItems)
     {
-        <dl style="@(item.Done ? "text-decoration: line-through" : "")">
-            <dt>@item.Title</dt>
-            <dd>@item.Desc</dd>
-        </dl>
+        <section class="@(item.Done ? "done" : "")">
+            <h3>@item.Title</h3>
+            <div>@item.Desc</div>
+        </section>
     }
-</ul>
+</div>
 
 @code{
     [Parameter] public List<Item> ListItems { get; set; }
