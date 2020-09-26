@@ -1,0 +1,59 @@
+@page "/todo"
+@inject IJSRuntime Js
+@inject Blazored.LocalStorage.ISyncLocalStorageService localStore
+
+<h1>My Tasks</h1>
+
+<div>
+    <input @bind="inpVal" />
+    <input @bind="desc" />
+    <button @onclick="AddTodo">Add</button>
+    <button @onclick="ClearLocalStorage">Clear All</button>
+    <List ListItems="@Todos"></List>
+</div>
+
+@code{
+    
+    public List<Item> Todos ;
+    private string inpVal = "";
+    private string desc = "";
+    public const string Key = "list_data_json";
+
+    public void AddTodo()
+    {
+        if (!String.IsNullOrWhiteSpace(inpVal) && !String.IsNullOrWhiteSpace(desc))
+        {
+            var itm = new Item
+            {
+                Title = inpVal,
+                Desc = desc,
+                Id = Guid.NewGuid().ToString(),
+                Done = false
+            };
+            Todos.Add(itm);
+            UpdateLocalStorage();
+        }
+        else
+        {
+            Js.InvokeVoidAsync("alert", "Title and/or Description cannot be empty.");
+        }
+    }
+
+    public void UpdateLocalStorage()
+    {
+         localStore.SetItem(Key, Todos);
+    }
+
+    public void ClearLocalStorage()
+    {
+        Todos = new List<Item>();
+        UpdateLocalStorage();
+    }
+
+    protected override void OnInitialized()
+    {
+        if (localStore.Length() <= 0) ClearLocalStorage();
+        Todos = localStore.GetItem<List<Item>>(Key);
+    }
+
+}
