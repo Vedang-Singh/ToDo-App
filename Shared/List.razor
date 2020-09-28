@@ -1,7 +1,7 @@
 <div style="padding: 10px">
     @foreach (var item in ListItems)
     {
-        <section class="@(item.Done ? "done" : "")">
+        <section class="@(item.Done ? "done" : "")" @onclick="() => { MarkAsDone(item.Id); }">
             <h3>@item.Title</h3>
             <div>@item.Desc</div>
         </section>
@@ -10,4 +10,16 @@
 
 @code{
     [Parameter] public List<Item> ListItems { get; set; }
+    [Inject] private ISyncLocalStorageService LocalStore { get; set; }
+
+    public void MarkAsDone(string id)
+    {
+        var currentClicked = ListItems.FirstOrDefault(i => i.Id == id);
+        if (currentClicked != null)
+        {
+            currentClicked.Done = !currentClicked.Done;
+        }
+        LocalStore.SetItem(Keys.ListKey, ListItems);
+
+    }
 }

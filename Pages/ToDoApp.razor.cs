@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using ToDoList.Data;
+using ToDoList.Config;
 using ToDoList.Shared;
 
 namespace ToDoList.Pages
@@ -17,8 +18,7 @@ namespace ToDoList.Pages
         private string inpVal = "";
         private string desc = "";
         private string listTitle;
-        public const string Key = "list_data_json";
-        public const string TitleKey = "list_title";
+
 
         public void AddTodo()
         {
@@ -31,6 +31,7 @@ namespace ToDoList.Pages
                     Id = Guid.NewGuid().ToString(),
                     Done = false
                 };
+
                 Todos.Add(itm);
                 UpdateLocalStorage();
             }
@@ -42,13 +43,7 @@ namespace ToDoList.Pages
 
         public void UpdateLocalStorage()
         {
-            LocalStore.SetItem(Key, Todos);
-        }
-
-        public void UpdateTitle(string val)
-        {
-            listTitle = val;
-            LocalStore.SetItem(TitleKey, val);
+            LocalStore.SetItem(Keys.ListKey, Todos);
         }
 
         public void ClearLocalStorage()
@@ -59,9 +54,15 @@ namespace ToDoList.Pages
 
         protected override void OnInitialized()
         {
-            listTitle = LocalStore.GetItem<string>(TitleKey) ?? "My Tasks";
-            Todos = LocalStore.GetItem<List<Item>>(Key) ?? new List<Item>();
+            listTitle = LocalStore.GetItem<string>(Keys.TitleKey) ?? "My Tasks";
+            Todos = LocalStore.GetItem<List<Item>>(Keys.ListKey) ?? new List<Item>();
             UpdateLocalStorage();
+        }
+
+        public void UpdateTitle(string val)
+        {
+            listTitle = val;
+            LocalStore.SetItem(Keys.TitleKey, val);
         }
     }
 }
