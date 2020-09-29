@@ -8,7 +8,7 @@
     <input placeholder="Description..." @bind="desc"/>
     <div class="btn-grp">
         <button class="btn-main" @onclick="AddTodo">Add</button>
-        <button @onclick="ClearLocalStorage">Clear All</button>
+        <button @onclick="ClearCompleted">Clear Completed</button>
     </div>
 </div>
 <List ListItems="@Todos"></List>

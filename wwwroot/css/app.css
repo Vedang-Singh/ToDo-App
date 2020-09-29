@@ -58,15 +58,10 @@ input {
     color: #555;
 }
 
-.form {
-    /*text-align: -webkit-center;*/
-}
-
 button {
     border: 2px solid #59adf7;
-    padding: 10px;
+    padding: 10px 20px;
     background: transparent;
-    width: 100px;
     margin: 10px 4px;
     -ms-border-radius: 3px;
     border-radius: 3px;
@@ -86,6 +81,7 @@ button {
 .btn-main {
     background: #59adf7;
     color: #fff;
+    width: 100px;
 }
 
 .btn-grp {

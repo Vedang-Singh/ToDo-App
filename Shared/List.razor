@@ -1,16 +1,56 @@
 <div style="padding: 10px">
-    @foreach (var item in ListItems)
+    @foreach (var item in NotCompleted())
     {
         <section class="@(item.Done ? "done" : "")" @onclick="() => { MarkAsDone(item.Id); }">
             <h3>@item.Title</h3>
             <div>@item.Desc</div>
         </section>
-    }
+    } 
+
+    <br/><br />
+    <p>Completed:</p>
+    @foreach (var item in Completed())
+    {
+        <section class="@(item.Done ? "done" : "")" @onclick="() => { MarkAsDone(item.Id); }">
+            <h3>@item.Title</h3>
+            <div>@item.Desc</div>
+        </section>
+    } 
 </div>
 
 @code{
     [Parameter] public List<Item> ListItems { get; set; }
     [Inject] private ISyncLocalStorageService LocalStore { get; set; }
+
+    public List<Item> SortedList()
+    {
+        var sorted = 
+            from itm in ListItems
+            orderby itm.Done
+            select itm;
+        return sorted.ToList();
+    }
+
+    public List<Item> Completed()
+    {
+        var comp = 
+            from itm in ListItems
+            where itm.Done
+            select itm;
+        
+        return comp.ToList();
+    }
+
+    public List<Item> NotCompleted()
+    {
+        var nc = 
+            from itm in ListItems
+            where !itm.Done
+            select itm;
+        
+        return nc.ToList();
+    }
+    
 
     public void MarkAsDone(string id)
     {

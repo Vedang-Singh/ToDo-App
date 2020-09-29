@@ -64,5 +64,16 @@ namespace ToDoList.Pages
             listTitle = val;
             LocalStore.SetItem(Keys.TitleKey, val);
         }
+
+        public void ClearCompleted()
+        {
+            var filtered = 
+                from item in Todos
+                where !item.Done 
+                select item;
+            
+            Todos = filtered.ToList();
+            UpdateLocalStorage();
+        }
     }
 }
