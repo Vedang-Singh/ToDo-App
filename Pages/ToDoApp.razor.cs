@@ -18,11 +18,13 @@ namespace ToDoList.Pages
         private string inpVal = "";
         private string desc = "";
         private string listTitle;
+        ElementReference inpRef;
+        ElementReference decRef;
 
 
         public void AddTodo()
         {
-            if (!string.IsNullOrWhiteSpace(inpVal) && !string.IsNullOrWhiteSpace(desc))
+            if (!string.IsNullOrWhiteSpace(inpVal))
             {
                 var itm = new Item
                 {
@@ -34,6 +36,7 @@ namespace ToDoList.Pages
 
                 Todos.Add(itm);
                 UpdateLocalStorage();
+                Js.InvokeVoidAsync("clearInput", inpRef, decRef);
             }
             else
             {

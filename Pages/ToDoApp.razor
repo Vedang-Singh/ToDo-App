@@ -4,8 +4,8 @@
     <header>
         <input @onchange="@((ChangeEventArgs __e) => UpdateTitle(__e.Value.ToString()))" value="@listTitle" />
     </header>
-    <input placeholder="Title..." @bind="inpVal"/><br/>
-    <input placeholder="Description..." @bind="desc"/>
+    <input @ref="inpRef" placeholder="Title..." @bind="inpVal"/><br/>
+    <input @ref="decRef" placeholder="Description..." @bind="desc"/>
     <div class="btn-grp">
         <button class="btn-main" @onclick="AddTodo">Add</button>
         <button @onclick="ClearCompleted">Clear Completed</button>

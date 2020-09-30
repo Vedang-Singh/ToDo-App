@@ -8,6 +8,7 @@ body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
     color: #555;
+    overflow-x: hidden;
 }
 
 .done {
@@ -28,6 +29,7 @@ section {
     -ms-transition: .2s;
     -o-transition: .2s;
     -webkit-transition: .2s;
+    overflow: auto;
     transition: .2s;
 }
 

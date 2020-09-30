@@ -3,7 +3,10 @@
     {
         <section class="@(item.Done ? "done" : "")" @onclick="() => { MarkAsDone(item.Id); }">
             <h3>@item.Title</h3>
-            <div>@item.Desc</div>
+            @if (!string.IsNullOrWhiteSpace(item.Desc))
+            {
+                <div>@item.Desc</div>
+            }
         </section>
     } 
 
@@ -13,7 +16,10 @@
     {
         <section class="@(item.Done ? "done" : "")" @onclick="() => { MarkAsDone(item.Id); }">
             <h3>@item.Title</h3>
-            <div>@item.Desc</div>
+            @if (!string.IsNullOrWhiteSpace(item.Desc))
+            {
+                <div>@item.Desc</div>
+            }
         </section>
     } 
 </div>

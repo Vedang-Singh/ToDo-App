@@ -14,5 +14,8 @@
         </div>
     </app>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        var clearInput = (...refs) => refs.forEach(v => v.value = null);
+    </script>
 </body>
 </html>
