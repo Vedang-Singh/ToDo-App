@@ -1,0 +1,147 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+* {
+    outline: none;
+}
+
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    color: #555;
+    overflow-x: hidden;
+}
+
+.done {
+    background: #198826;
+}
+
+section {
+    background: #5772c0;
+    padding: 10px 10px 10px 16px;
+    width: 82%;
+    color: #fff;
+    -ms-border-radius: 7px;
+    border-radius: 7px;
+    box-shadow: 6px 6px 13px #0000002b;
+    cursor: pointer;
+    margin: 24px 0px 19px 14px;
+    /* border-bottom: 1px solid #c4c4c4; */
+    -ms-transition: .2s;
+    -o-transition: .2s;
+    -webkit-transition: .2s;
+    overflow: auto;
+    transition: .2s;
+}
+
+    section:active {
+        box-shadow: 0px 0px 0px #00000038;
+    }
+
+    section h3 {
+        color: #fbff01;
+        font-weight: normal;
+        margin: 0 0 0px 0;
+        font-size: 1.6em;
+    }
+
+    section div {
+        padding: 10px;
+    }
+
+input {
+    border: 1px solid #eee;
+    padding: 16px;
+    width: 77%;
+    margin: 0 0 15px 24px;
+    background: #eee;
+    /* box-shadow: 0px 0px 3px #0000001a; */
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    color: #555;
+}
+
+button {
+    border: 2px solid #59adf7;
+    padding: 10px 20px;
+    background: transparent;
+    margin: 10px 4px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+    cursor: pointer;
+}
+
+    button:hover {
+        background: #366ec3;
+        color: #fff;
+        border: 2px solid #366ec3;
+    }
+
+.btn-main {
+    background: #59adf7;
+    color: #fff;
+    width: 100px;
+}
+
+.btn-grp {
+    /* width: 84%; */
+    text-align: right;
+    width: 80%;
+    margin-left: 46px;
+    margin-bottom: 20px;
+}
+
+header {
+    /*width: 86%;*/
+    text-align: left;
+    margin: 30px 0 14px 9px;
+}
+
+    header input {
+        background: transparent;
+        border: none;
+        font-size: 2.5em;
+        margin: 0 0 16px 0;
+    }
+
+app {
+    display: flex;
+    justify-content: center;
+}
+
+.loader{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.link-main {
+    text-decoration: none;
+    padding: 12px 18px;
+    background: #3c85f6;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.2em;
+    box-shadow: 5px 4px 12px #0000002b;
+    transition: .2s;
+}
+
+.link-main:active {
+    box-shadow: 0 0 0 #0000002b;
+}
+
+p {
+    line-height: 1.9em;
+    margin: 0 0 28px 0;
+}
+
+.index-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
