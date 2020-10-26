@@ -13,6 +13,6 @@ A simple to-do list app made using [Blazor] WebAssembly.
 
 * Clone this repository.
 * Open the command prompt from project root directory.
-* Run using `dotnet run`command.
+* Run using `dotnet run` command.
 
 [Blazor]: <https://www.blazor.net>
