@@ -1,21 +1,27 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>ToDoList</title>
     <!-- <base href="/" /> -->
     <link href="./css/app.css" rel="stylesheet" />
+    <link href="./manifest.json" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="./icon-512.png" />
 </head>
+
 <body>
-    <app>
+    <div id="app">
         <div class="loader">
             <img src="./img/loading.gif" />
         </div>
-    </app>
+    </div>
     <script src="./_framework/blazor.webassembly.js"></script>
     <script>
         var clearInput = (...refs) => refs.forEach(v => v.value = null);
     </script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
 </body>
+
 </html>

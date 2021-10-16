@@ -107,7 +107,7 @@ header {
         margin: 0 0 16px 0;
     }
 
-app {
+#app {
     display: flex;
     justify-content: center;
 }
